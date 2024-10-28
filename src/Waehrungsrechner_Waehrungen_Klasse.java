@@ -13,8 +13,10 @@ public class Waehrungsrechner_Waehrungen_Klasse {
 
     public  void addToWaehrungsListe() {
         try {
-            String myString = "";
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("Waehrungen.txt"));
+            String myString ="";
+            try{
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("waehrung.txt"));
+
             int value;
             while ((value = bufferedReader.read()) != -1) {
                 if ((char) value == '\n') {
@@ -25,6 +27,9 @@ public class Waehrungsrechner_Waehrungen_Klasse {
                    myString+=(char) value;
                 }
 
+            }
+            }catch(FileNotFoundException exp){
+                exp.printStackTrace();
             }
         }catch (IOException e){
             e.printStackTrace();
